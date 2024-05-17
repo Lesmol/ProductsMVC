@@ -1,7 +1,9 @@
 ### Simple Products MVC Page
+This is a simple product webpage to assess my ASP.NET Core, Azure and design skills. The goal is to design and build a beautiful UI using the MVC template. The webpage is dynamic, the product data is stored on a database hosted on Azure.
 
-This is a simple products webpage to assess ASP.NET Core, Azure and design skills. The goal is to design a beautiful UI and build the it using MVC. The webpage should be dynamic where the product data is stored on a database hosted on Azure.
-
+### Future improvements
+- Adding tests
+- Making it live
 
 
 [![My Skills](https://skillicons.dev/icons?i=azure,cs,dotnet,git,mysql,html,css&perline=4)](https://skillicons.dev)
