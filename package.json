@@ -1,0 +1,15 @@
+{
+    "name": "productsmvc",
+    "version": "1.0.0",
+    "description": "This is a simple products webpage to assess ASP.NET Core, Azure and design skills. The goal is to design a beautiful UI and build the it using MVC. The webpage should be dynamic where the product data is stored on a database hosted on Azure.",
+    "main": "index.js",
+    "scripts": {
+        "css:build": "npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "tailwindcss": "^3.4.3"
+    }
+}
