@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<ProductsMVC.Models.Product>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -12,55 +14,25 @@
         </h1>
 
         <div class="mt-5 flex flex-wrap space-x-2 justify-around">
-            <div class="mb-4">
-                <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded"  />
-                <p>VOOZIE Modern Fitted Office Chair</p>
-                <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
-        <div>
-            <img src="https://modernspaceliving.sg/cdn/shop/files/2_3d9819f5-e102-4626-aabe-5fa090bc3850.png?v=1715944640&width=360" alt="Lamp" class="w-[280px] object-fill rounded" />
-            <p>VOOZIE Modern Fitted Office Chair</p>
-            <p class="text-gray-400">R 2500.00</p>
-        </div>
+            
+        @foreach (var product in Model)
+        {
+            <a asp-action="ProductDetails" asp-route-id="@product.Id" class="text-black">
+                <div class="mb-4 group ">
+                    <div class="w-[300px] aspect-square overflow-clip rounded">
+                        <img src=@product.ImageUrl alt="..." class="w-full h-full object-fill group-hover:scale-105 transition duration-300 ease-out" />
+                    </div>
+                    <p class="font-medium pt-1">@product.ProductName</p>
+                    <p class="text-gray-400">R @product.ProductPrice</p>
+				</div>
+            </a>
+		}
+        
         </div>
 </section>
+
+<div class="text-3xl text-center">
+    <a href="#" class="hover:text-4xl transition-all duration-150 ease-out">1</a>
+    <a href="#" class="hover:text-4xl transition-all duration-150 ease-out">2</a>
+    ...
+</div>
