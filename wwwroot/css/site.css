@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --light-blue: #04C3FF;
+    --light-green: #04FFB4;
+}
+
 html {
   font-size: 14px;
 }
@@ -19,4 +24,27 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.header {
+    margin-top: 1rem;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1536px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navigation-links {
+    color: black;
+    transition: color 150s ease-in-out
+}
+
+.navigation-links:hover {
+    color: red;
 }
