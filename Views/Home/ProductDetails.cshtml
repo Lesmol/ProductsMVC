@@ -4,50 +4,17 @@
     ViewData["Title"] = "Product Details";
 }
 
-<h1>Product Details</h1>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Product Name
-        </dt>
-        <dd class="col-sm-10">
-            @Model.ProductName
-        </dd>
-        <dt class="col-sm-2">
-            Description
-        </dt>
-        <dd class="col-sm-10">
-            @Model.ProductDescription
-        </dd>
-        <dt class="col-sm-2">
-            Category
-        </dt>
-        <dd class="col-sm-10">
-            @Model.ProductCategory
-        </dd>
-        <dt class="col-sm-2">
-            Price
-        </dt>
-        <dd class="col-sm-10">
-            @Model.ProductPrice
-        </dd>
-        <dt class="col-sm-2">
-            Stock
-        </dt>
-        <dd class="col-sm-10">
-            @Model.Stock
-        </dd>
-        <dt class="col-sm-2">
-            Image
-        </dt>
-        <dd class="col-sm-10">
-            <img src="@Model.ImageUrl" alt="Image" style="width:200px;height:200px;" />
-        </dd>
-    </dl>
+<div class="mt-10 text-center">
+    <a asp-action="Index">Home</a> &#62; <span class="text-gray-500">@Model.ProductName</span>
 </div>
-<div>
-    <a asp-action="Index">Back to List</a>
+
+<div class="flex space-x-36 justify-center mt-4">
+    <img src=@Model.ImageUrl alt="Alternate Text" class="w-[500px] rounded-3 aspect-square" />
+    <div class="max-w-lg">
+        <h1 class="text-2xl font-bold">@Model.ProductName</h1>
+        <p class="text-gray-500 font-light">@Model.ProductDescription</p>
+        <p class="my-3 text-lg font-medium">For R @Model.ProductPrice</p>
+        <p class="text-gray-400">@Model.Stock Remaining</p>
+    </div>
 </div>
