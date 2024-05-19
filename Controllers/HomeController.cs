@@ -26,7 +26,17 @@ namespace ProductsMVC.Controllers
             return View(products);
         }
 
-		public async Task<IActionResult> ProductDetails(int? id)
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ProductDetails(int? id)
 		{
 			if (id == null)
 			{
