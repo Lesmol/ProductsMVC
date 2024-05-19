@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ProductsMVC</title>
+    <title>Products | @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProductsMVC.styles.css" asp-append-version="true" />
@@ -12,9 +12,11 @@
 <body>
     <header class="container mt-3">
         <nav class="navigation">
-            <img src="/svg/logo.svg" alt="Logo with the letter P typed in plaster font" />
+            <a asp-controller="Home" asp-action="Index">
+                <img src="/svg/logo.svg" alt="Logo with the letter P typed in plaster font" />
+            </a>
             <div class="space-x-4">
-                <a href="#" class="text-black text-lg">Products</a>
+                <a asp-controller="Product" asp-action="Index" class="text-black text-lg">Products</a>
                 <a href="#" class="text-black text-lg">About</a>
                 <a href="#" class="text-black text-lg">Contact us</a>
             </div>

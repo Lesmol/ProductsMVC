@@ -8,13 +8,14 @@
 <div class="mt-10 mb-3 text-center">
     <a asp-action="Index">Home</a> &#62; <span class="text-gray-500">@Model.ProductName</span>
 </div>
-<hr/>
+<hr />
 
-<div class="flex space-x-36 justify-center mt-4">
+<div class="flex space-x-36 justify-center items-center mt-4">
     <img src=@Model.ImageUrl alt="Alternate Text" class="w-[500px] rounded-3 aspect-square" />
     <div class="max-w-lg">
         <h1 class="text-2xl font-bold">@Model.ProductName</h1>
         <p class="text-gray-500 font-light">@Model.ProductDescription</p>
         <p class="my-3 text-gray-400">@Model.Stock Remaining for <span class="text-black text-lg font-medium">R @Model.ProductPrice each</span></p>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="block mt-8 text-center px-10 py-2 border-1 border-light-blue rounded font-bold text-lg text-light-blue hover:bg-light-blue hover:text-white transition-all duration-150 ease-out">Edit</a>
     </div>
 </div>

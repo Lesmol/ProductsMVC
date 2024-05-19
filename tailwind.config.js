@@ -22,7 +22,9 @@ module.exports = {
             backgroundColor: {
                 orange: "#FFA500",
                 "light-green": "#04FFB4",
+                "custom-blue": "#009BCC",
                 "light-blue": "#04C3FF",
+                "lighter-blue": "#B2EDFF",
             },
             aspectRatio: {
                 "752/444": "752/444",

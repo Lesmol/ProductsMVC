@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ProductsMVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Modify Products";
+}
+
+<section>
+    <h1 class="text-3xl text-center mt-16 font-medium">
+        &#8213;  MODIFY PRODUCTS  &#8213;
+    </h1>
+
+    <div class="mt-5 flex flex-wrap space-x-2 justify-around">
+
+        @foreach (var product in Model)
+        {
+            <a asp-action="ProductDetails" asp-route-id="@product.Id" class="text-black">
+                <div class="mb-4 group ">
+                    <div class="w-[300px] aspect-square overflow-clip rounded">
+                        <img src=@product.ImageUrl alt="..." class="w-full h-full object-fill group-hover:scale-105 transition duration-300 ease-out" />
+                    </div>
+                    <p class="max-w-[300px] font-medium pt-1">@product.ProductName</p>
+                    <p class="text-gray-400">R @product.ProductPrice</p>
+                </div>
+            </a>
+        }
+
+    </div>
+</section>

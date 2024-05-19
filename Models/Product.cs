@@ -19,8 +19,8 @@ namespace ProductsMVC.Models
         public string ProductCategory { get; set; }
 
         [Required]
-        [Range(0, double.MaxValue)]
-        public double ProductPrice { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal ProductPrice { get; set; }
 
         [Required]
         [StringLength(100)]
