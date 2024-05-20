@@ -4,54 +4,13 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductCategory)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductCategory)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Stock)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Stock)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+<div class="mt-4 text-center">
+    <a asp-action="Index">Modify products</a> &#62; <a asp-action="ProductDetails" asp-route-id="@Model.Id">@Model.ProductName</a> &#62; <a asp-action="Edit" asp-route-id="@Model.Id">Edit @Model.ProductName</a> &#62;  <span class="text-gray-500">Delete @Model.ProductName</span>
 </div>
+
+<h3 class="text-2xl font-bold mt-4 text-center">Are you sure you want to delete this?</h3>
+    
+    <form asp-action="Delete" class="flex justify-center mt-8">
+        <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="px-10 py-2 border-1 border-darker-red rounded font-bold text-lg text-darker-red hover:bg-darker-red hover:text-white transition-all duration-150 ease-out" />
+    </form>

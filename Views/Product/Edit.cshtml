@@ -5,7 +5,7 @@
 }
 
 <div class="mt-4 text-center">
-    <a asp-action="Index">Modify products</a> &#62; <span class="text-gray-500">@Model.ProductName</span>
+    <a asp-action="Index">Modify products</a> &#62; <a asp-action="ProductDetails" asp-route-id="@Model.Id">@Model.ProductName</a> &#62; <span class="text-gray-500">Edit @Model.ProductName</span>
 </div>
 
 <h1 class="text-3xl text-center mt-4 mb-2 font-medium">Edit Product</h1>
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="px-10 py-2 bg-light-blue rounded font-bold text-lg text-white hover:bg-custom-blue transition-all duration-150 ease-out" />
-                <a asp-action="Delete" asp-route-id="@Model.Id" class="px-10 py-2 border-1 border-red rounded font-bold text-lg text-red hover:bg-red hover:text-white transition-all duration-150 ease-out">Delete</a>
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="px-10 py-2 border-1 border-darker-red rounded font-bold text-lg text-darker-red hover:bg-darker-red hover:text-white transition-all duration-150 ease-out">Delete</a>
             </div>
         </form>
     </div>

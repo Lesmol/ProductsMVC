@@ -18,7 +18,7 @@ module.exports = {
                 "custom-blue": "#009BCC",
                 "light-blue": "#04C3FF",
                 red: "#FF0000",
-                "darker-red": "#D2042D",
+                "darker-red": "#7B0323 ",
             },
             backgroundColor: {
                 orange: "#FFA500",
@@ -26,6 +26,7 @@ module.exports = {
                 "custom-blue": "#009BCC",
                 "light-blue": "#04C3FF",
                 "lighter-blue": "#B2EDFF",
+                "darker-red": "#7B0323 ",
             },
             aspectRatio: {
                 "752/444": "752/444",
