@@ -1,15 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using ProductsMVC.Data;
+using ProductsMVC.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// DB context service
 builder.Services.AddDbContext<ProductsContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+//IProductService DI scoped service
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductsMVC.Data;
+using ProductsMVC.Data.Services;
 using ProductsMVC.Models;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -9,15 +10,11 @@ namespace ProductsMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IProductService _service;
 
-        // This code should be within a ProductsService class
-        private readonly ProductsContext _context;
-
-        public HomeController(ILogger<HomeController> logger, ProductsContext context)
+        public HomeController(IProductService service)
         {
-            _context = context;
-            _logger = logger;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
