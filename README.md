@@ -6,4 +6,4 @@ This is a simple product webpage to assess my ASP.NET Core, Azure and design ski
 - Making it live
 
 
-[![My Skills](https://skillicons.dev/icons?i=azure,cs,dotnet,git,mysql,html,css&perline=4)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=azure,cs,dotnet,git,mysql,html,css,tailwindcss&perline=4)](https://skillicons.dev)
