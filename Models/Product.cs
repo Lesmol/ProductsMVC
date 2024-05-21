@@ -8,15 +8,15 @@ namespace ProductsMVC.Models
 
         [Required]
         [StringLength(100)]
-        public string ProductName { get; set; }
+        public required string ProductName { get; set; }
 
         [Required]
         [StringLength(500)]
-        public string ProductDescription { get; set; }
+        public required string ProductDescription { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string ProductCategory { get; set; }
+        public required string ProductCategory { get; set; }
 
         [Required]
         [DataType(DataType.Currency)]
@@ -27,6 +27,6 @@ namespace ProductsMVC.Models
         public int Stock { get; set; }
 
         [Required]
-        public string ImageUrl { get; set; }
+        public required string ImageUrl { get; set; }
     }
 }
