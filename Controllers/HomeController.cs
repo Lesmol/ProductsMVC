@@ -17,9 +17,11 @@ namespace ProductsMVC.Controllers
             _service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var products = _service.GetFirst8();
+            var products = await _service
+                .GetFirst8();
+
             return View(products);
         }
 
@@ -40,7 +42,8 @@ namespace ProductsMVC.Controllers
 				return NotFound();
 			}
 
-			var product = await _service.GetProduct(id.Value);
+			var product = await _service
+                .GetProduct(id.Value);
 
 			if (product == null)
 			{
@@ -53,6 +56,11 @@ namespace ProductsMVC.Controllers
 		public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult DetailsPartial()
+        {
+            return PartialView("_Details");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -8,7 +8,7 @@ namespace ProductsMVC.Data.Services
         Task<IEnumerable<Product>> GetAll();
         Task<Product?> GetById(int id);
         Task<Product> GetProduct(int id);
-        IEnumerable<Product> GetFirst8();
+        Task <IEnumerable<Product>> GetFirst8();
         Task AddProduct(Product product);
         Task DeleteProduct(Product product);
         Task EditProduct(Product product);

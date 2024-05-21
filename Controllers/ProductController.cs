@@ -150,5 +150,10 @@ namespace ProductsMVC.Controllers
         {
             return _service.ProductExists(id);
         }
-    }
+
+		public IActionResult DetailsPartial()
+		{
+			return PartialView("_Details", _service.GetAll());
+		}
+	}
 }

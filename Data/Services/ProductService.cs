@@ -17,52 +17,74 @@ namespace ProductsMVC.Data.Services
 
         public async Task DeleteProduct(Product product)
         {
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
+            _context
+                .Products
+                .Remove(product);
+
+            await _context
+                .SaveChangesAsync();
         }
 
         public async Task EditProduct(Product product)
         {
-            _context.Update(product);
-            await _context.SaveChangesAsync();
+            _context
+                .Update(product);
+
+            await _context
+                .SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Product>> GetAll()
         {
-            var result = await _context.Products.ToListAsync();
+            var result = await _context
+                .Products
+                .ToListAsync();
 
             return result;
         }
 
         public async Task<Product?> GetById(int id)
         {
-            var result = await _context.Products
+            var result = await _context
+                .Products
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return result;
         }
 
-        public IEnumerable<Product> GetFirst8()
+        public async Task<IEnumerable<Product>> GetFirst8()
         {
-            return _context.Products.Take(8).ToList();
+            var products = await _context
+                .Products
+                .Take(8)
+                .ToListAsync();
+
+			return products;
         }
 
         public async Task AddProduct(Product product)
         {
-            _context.Add(product);
-            await _context.SaveChangesAsync();
+            _context
+                .Add(product);
+
+            await _context
+                .SaveChangesAsync();
         }
 
         public async Task<Product> GetProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context
+                .Products
+                .FindAsync(id);
 
             return product!;
         }
 
         public bool ProductExists(int id)
         {
-            return _context.Products.Any(e => e.Id == id);
+            return _context
+                .Products
+                .Any(e => e.Id == id);
         }
     }
 }
