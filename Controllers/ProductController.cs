@@ -6,23 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProductsMVC.Data;
+using ProductsMVC.Data.Services;
 using ProductsMVC.Models;
 
 namespace ProductsMVC.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductsContext _context;
+        private readonly IProductService _service;
 
-        public ProductController(ProductsContext context)
+        public ProductController(IProductService service)
         {
-            _context = context;
+            _service = service;
         }
 
         
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Products.ToListAsync());
+            var products = await _service.GetAll();
+
+            return View(products);
         }
 
         
@@ -33,8 +36,8 @@ namespace ProductsMVC.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _service.GetById(id.Value);
+
             if (product == null)
             {
                 return NotFound();
@@ -56,8 +59,7 @@ namespace ProductsMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                await _service.AddProduct(product);
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
@@ -71,7 +73,8 @@ namespace ProductsMVC.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var product = await _service.GetById(id.Value);
+
             if (product == null)
             {
                 return NotFound();
@@ -93,8 +96,7 @@ namespace ProductsMVC.Controllers
             {
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    await _service.EditProduct(product);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -120,8 +122,8 @@ namespace ProductsMVC.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _service.GetById(id.Value);
+
             if (product == null)
             {
                 return NotFound();
@@ -135,19 +137,18 @@ namespace ProductsMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _service.GetProduct(id);
             if (product != null)
             {
-                _context.Products.Remove(product);
+                await _service.DeleteProduct(product);
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-            return _context.Products.Any(e => e.Id == id);
+            return _service.ProductExists(id);
         }
     }
 }

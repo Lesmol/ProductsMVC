@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductsMVC.Data;
+using ProductsMVC.Data.Services;
 using ProductsMVC.Models;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -9,20 +10,16 @@ namespace ProductsMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IProductService _service;
 
-        // This code should be within a ProductsService class
-        private readonly ProductsContext _context;
-
-        public HomeController(ILogger<HomeController> logger, ProductsContext context)
+        public HomeController(IProductService service)
         {
-            _context = context;
-            _logger = logger;
+            _service = service;
         }
 
         public IActionResult Index()
         {
-            var products = _context.Products.Take(8).ToList();
+            var products = _service.GetFirst8();
             return View(products);
         }
 
@@ -43,8 +40,7 @@ namespace ProductsMVC.Controllers
 				return NotFound();
 			}
 
-			var product = await _context.Products
-				.FirstOrDefaultAsync(m => m.Id == id);
+			var product = await _service.GetProduct(id.Value);
 
 			if (product == null)
 			{
