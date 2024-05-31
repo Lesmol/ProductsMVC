@@ -7,6 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Add environment variables to the configuration
+builder.Configuration.AddEnvironmentVariables();
+
+// Retrieve the connection string from the environment variable
+var connectionString = Environment.GetEnvironmentVariable("DefaultConnection");
+
+// Ensure the connection string is added to the configuration if it's not null or empty
+if (!string.IsNullOrEmpty(connectionString))
+{
+    builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
+}
+
 // DB context service
 builder.Services.AddDbContext<ProductsContext>(options =>
 {
